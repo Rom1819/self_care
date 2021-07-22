@@ -6,10 +6,10 @@ import 'package:self_care/nearby_hospitals/services/places_service.dart';
 import 'package:self_care/nearby_hospitals/models/venue.dart';
 
 class PlacesNotifier extends ChangeNotifier {
-  static String _clientId = 'JLHFPKJ4NOPTUUA4XSM4XG5M1LVDDJM3EBLDGCSTZ3NOY3OV';
+  static String _clientId = '';
 
   static String _clientSecret =
-      'GIMR2SES1ED423T4AWYQIXCEIURAQJAPCRQMEPRYB4LOHXTY';
+      '';
   static String _apiVersion = '20210628';
   static String _radius = '2000';
 

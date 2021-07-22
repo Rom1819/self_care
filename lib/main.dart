@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:self_care/developers/admin/screen/admin_panel.dart';
 import 'package:self_care/developers/developers.dart';
+import 'package:self_care/nearby_hospitals/Notifiers/places_notifier.dart';
 
 import 'package:self_care/screen/home_screen.dart';
 import 'constrains.dart';
 import 'developers/admin/models/authentication.dart';
 import 'developers/admin/screen/login_screen.dart';
+import 'nearby_hospitals/Notifiers/location_notifier.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,40 +23,41 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-        ChangeNotifierProvider.value(
-        value: Authentication()),
-    ],
+      providers: [
+        ChangeNotifierProvider.value(value: Authentication()),
+        ChangeNotifierProvider(create: (context) => LocationNotifier()),
+        ChangeNotifierProvider(create: (context) => PlacesNotifier())
+      ],
       child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Self Care',
-      theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: textColor),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: FutureBuilder(
-        future: _firebaseApp,
-        builder: (context, AsyncSnapshot<dynamic> snapshot) {
-          if (snapshot.hasError) {
-            print('You have an error! ${snapshot.error.toString()}');
-            return Text('Something went wrong!');
-          } else if (snapshot.hasData) {
-            print('Firebase integration successful!');
-            return HomeScreen();
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+        debugShowCheckedModeBanner: false,
+        title: 'Self Care',
+        theme: ThemeData(
+          textTheme: Theme.of(context).textTheme.apply(bodyColor: textColor),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: FutureBuilder(
+          future: _firebaseApp,
+          builder: (context, AsyncSnapshot<dynamic> snapshot) {
+            if (snapshot.hasError) {
+              print('You have an error! ${snapshot.error.toString()}');
+              return Text('Something went wrong!');
+            } else if (snapshot.hasData) {
+              print('Firebase integration successful!');
+              return HomeScreen();
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ),
+        routes: {
+          LoginScreen.routeName: (ctx) => LoginScreen(),
+          AdminPanel.routeName: (ctx) => AdminPanel(),
+          HomeScreen.routeName: (ctx) => HomeScreen(),
+          Developers.routeName: (ctx) => Developers(),
         },
       ),
-      routes: {
-        LoginScreen.routeName: (ctx) => LoginScreen(),
-        AdminPanel.routeName : (ctx) => AdminPanel(),
-        HomeScreen.routeName : (ctx) => HomeScreen(),
-        Developers.routeName : (ctx) => Developers(),
-      },
-    ),
     );
   }
 }

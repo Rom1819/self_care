@@ -2,19 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ronch.self_care">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-
     <application
         android:label="Self Care"
         android:icon="@mipmap/ic_launcher"
         tools:ignore="AllowBackup">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBaYufoIdWOqlNb0M4OjoIt3FCDSDAAbJ8" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
