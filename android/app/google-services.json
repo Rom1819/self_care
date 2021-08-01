@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "767554899477",
+    "project_id": "self-care-318118",
+    "storage_bucket": "self-care-318118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767554899477:android:fbeb42b826a9d97039481c",
+        "android_client_info": {
+          "package_name": "com.ronch.self_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767554899477-sfdst0gi6hin4h3j6sq2nqjjf98vsuvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhSEVf_8MkSlEiQxtiDc4VTnCtpRCuYj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767554899477-sfdst0gi6hin4h3j6sq2nqjjf98vsuvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
